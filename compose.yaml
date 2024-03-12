@@ -1,0 +1,26 @@
+version: '3'
+services:
+  db:
+    build: ./database
+    volumes:
+      -  db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: toor
+      MYSQL_DATABASE: contacts
+    ports:
+      - "3306:3306"
+  app:
+    depends_on:
+    - db
+    build: ./frontend
+    ports:
+    - "8000:80"
+    restart: always
+    environment:
+    - DB_HOST=db:3306
+    - DB_USER=root
+    - DB_PASSWORD=toor
+    - DB_NAME=contacts
+volumes:
+  db_data:

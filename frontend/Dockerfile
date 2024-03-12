@@ -1,25 +1,22 @@
-FROM node:latest as build
+# Utiliser une image PHP avec Apache
+FROM php:8.0-apache
 
-# Répertoire de travail dans le conteneur
-WORKDIR /app
+# Activer le module Apache mod_rewrite
+RUN a2enmod rewrite
 
-# Clonage du repository contenant l'application React
+# Définir le répertoire de travail dans le conteneur
+WORKDIR /var/www/html
+#Installation du pilote PDO 
+RUN docker-php-ext-install pdo pdo_mysql
+#clone 
 RUN apt-get update && apt-get install -y git
-RUN git clone https://github.com/dimq/docker-formation.git
+RUN git clone https://github.com/michelnyobe/frontend_debops.git
 
-# Déplacer le contenu du frontend dans /app
-RUN mv docker-formation/frontend/* .
+# Copier les fichiers PHP dans le conteneur
+RUN mv frontend_debops/*  /var/www/html/
 
-# Installation des dépendances
-RUN npm install
-
-# Construction de l'application React
-RUN npm run build
-
-FROM nginx:alpine
-
-COPY --from=build /app/build /usr/share/nginx/html
-
+# Exposer le port 80 pour accéder à l'application PHP via le navigateur
 EXPOSE 80
 
-CMD ["nginx", "-g", "daemon off;"]
+# Commande pour démarrer Apache lors du lancement du conteneur
+CMD ["apache2-foreground"]
