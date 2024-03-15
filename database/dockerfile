@@ -1,15 +1,9 @@
-# Utiliser une image MySQL
+
 FROM mysql:latest
 
-# Installer curl (si ce n'est pas déjà fait)
-
-
-# Télécharger le script SQL depuis GitHub en utilisant curl
 RUN curl -o /docker-entrypoint-initdb.d/contacts.sql https://raw.githubusercontent.com/michelnyobe/frontend_debops/master/contacts.sql
 
-# Définir les variables d'environnement pour configurer la base de données
 ENV MYSQL_ROOT_PASSWORD=root_password
 ENV MYSQL_DATABASE=contacts
 
-# Exposer le port MySQL
 EXPOSE 3306
