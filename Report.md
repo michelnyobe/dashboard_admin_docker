@@ -9,6 +9,8 @@ Les commandes Docker :
 - Commande pour supprimer un container : `docker rm CONTAINER`
 - Commande pour afficher les logs d'un conteneur : `docker logs CONTAINER`
 - Commande pour exécuter une commande dans le conteneur : `docker exec CONTAINER COMMANDE`
+- commande pour lister les images `docker  images`
+- commande pour supprimer une image `docker rm IMAGE`
 
 # Reponse 2: Comprendre la conteneurisation en entreprise
 
