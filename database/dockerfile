@@ -1,5 +1,5 @@
 
-FROM mysql:latest
+FROM mysql:8.0
 
 RUN curl -o /docker-entrypoint-initdb.d/contacts.sql https://raw.githubusercontent.com/michelnyobe/frontend_debops/master/contacts.sql
 
