@@ -13,6 +13,7 @@ RUN git clone https://github.com/michelnyobe/frontend_debops.git
 
 RUN mv frontend_debops/*  /var/www/html/
 
+USER www-data
 
 EXPOSE 80
 
