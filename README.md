@@ -6,4 +6,5 @@
 - nous définissons le répertoire de travail comme ` /var/www/html `, ce qui simplifie les instructions ultérieures en évitant de spécifier à chaque fois le chemin complet.
 - Nous installons Git pour pouvoir cloner le dépôt depuis `GitHub`
 - Nous exécutons Apache avec l'utilisateur `www-data`, ce qui est une bonne pratique pour des raisons de sécurité.
+- generation d'un mot de passe robusque 
 

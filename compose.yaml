@@ -6,7 +6,7 @@ services:
       -  db_data:/var/lib/mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: toor
+      MYSQL_ROOT_PASSWORD: w7#RP!fZ8@T2
       MYSQL_DATABASE: contacts
     ports:
       - "3306:3306"
@@ -20,7 +20,7 @@ services:
     environment:
     - DB_HOST=db:3306
     - DB_USER=root
-    - DB_PASSWORD=toor
+    - DB_PASSWORD=w7#RP!fZ8@T2
     - DB_NAME=contacts
 volumes:
   db_data:
